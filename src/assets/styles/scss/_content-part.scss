@@ -1,0 +1,193 @@
+.develop {
+    margin-top: 99vh;
+    // background-image: url('../../images/noisyBG/figma/DarkBlue-Lilac.jpg');
+    background-repeat: no-repeat;
+    background-size: 189% auto;
+}
+
+.develop,
+.graphisme,
+.about {
+    min-height: 100vh;
+    width: 100%;
+
+    .part-title,
+    .part-title span {
+        font-family: 'mentra';
+        margin-top: 6.25rem;
+        letter-spacing: .125rem;
+        font-size: 13vw;
+    }
+}
+
+.graphisme {
+    // background-image: url('../../images/noisyBG/figma/DarkBlue-Lilac\ \(4\).jpg');
+    background-repeat: no-repeat;
+    background-size: 163% auto;
+    background-position: top;
+
+    h2,
+    h2 span {
+        font-size: 11vw;
+    }
+}
+
+.about {
+    // background-image: url('../../images/noisyBG/figma/bottom.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: bottom;
+    padding-bottom: 1.5rem;
+}
+
+.anim-text-container .anim__span-container {
+    display: inline-block;
+    overflow: hidden;
+    transform: translateY(.3438rem);
+    padding-right: 3rem;
+    transition: transform 0.3s ease-in-out;
+    line-height: 1;
+}
+
+.anim-text-container:hover {
+    .anim__span-content {
+        transform: translateY(calc(-100% - .3063rem));
+    }      
+}
+
+.anim-text-container,
+.anim-text-container .anim__span-content {
+    font-size: 1.9rem;
+    font-weight: 600;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.anim-text-container .anim__span-content {
+    position: relative;
+
+    &:after {
+        font-family: 'Mentra';
+        content: "full·stack";
+        text-transform: uppercase;
+        position: absolute;
+        font-size: 1.5rem;
+        bottom: -2rem;
+        left: 0;
+        right: 0;
+        width: 13rem;
+    }
+}
+
+.comp {
+    display: flex;
+    gap: .625rem;   
+    justify-content: center;
+
+    img {
+        height: 2.1875rem;
+        aspect-ratio: 1/1;
+    }
+}
+
+.bloc {
+    .button_access {
+        margin-bottom: .1875rem;
+        margin-right: .1875rem;
+        display: flex;
+        gap: 1.25rem;
+    }
+
+    &.solo {
+        width: 100%;
+    }
+}
+
+.vertical-img {
+    .vertical-img-container {
+        display: flex;
+        gap: 6%;
+
+        img {
+            width: 47%;
+        }
+    }
+
+    img {
+        margin-top: 0;
+        max-height: 31.25rem;
+    }
+}
+
+.little-height {
+    max-height: 22.81rem;
+
+    img {
+        height: 100%;
+        max-height: 22.81rem;
+        width: auto;
+    }
+}
+
+@media (min-width: 35.5rem) {
+    .bloc.solo {
+        width: 100%;
+        padding-top: 3rem;
+    }
+
+    .about {
+        padding-bottom: 3rem;
+    }
+}
+
+@media (min-width: 48rem) {
+    .develop {
+        background-size: 100% auto;
+    }
+    
+    .graphisme {
+        background-size: 100% auto;
+    }
+
+    .bloc.solo {
+        width: 100%;
+        padding-top: 3rem;
+    }
+
+    .little-height {    
+        img {
+            width: 100%;
+        }
+    }
+
+    .vertical-img {
+        .vertical-img-container {
+            display: flex;
+            gap: 6%;
+        }
+    }
+}
+
+@media (min-width: 72.5rem) {
+    .bloc.solo {
+        width: 83%;
+        padding: 0 3rem;
+    }
+
+    .little-height {    
+        img {
+            width: auto;
+        }
+    }
+
+    .vertical-img {
+        .vertical-img-container {
+            display: flex;
+            gap: 2.5rem;
+        }
+    }
+
+    .img-vertical {
+        width: auto !important;
+    }
+}

@@ -1,0 +1,156 @@
+{
+    "develop": [
+        {
+            "title": "application Movies - Front",
+            "categorie": "develop",
+            "technologies": ["Vue.js"],
+            "content": [
+                "Ce projet Vue.js permet de gérer les entités films, acteurs et catégories avec des fonctionnalités de modification, de suppression et d'ajout.",
+                "Il intègre un système de connexion sécurisé basé sur la génération de tokens JWT, offrant ainsi un accès restreint et sécurisé à la base de données via le stockage du token dans le localStorage côté client."
+            ],
+            "images": [
+                {
+                    "src": "images/MovieVueApi/MovieProject.gif",
+                    "alt": "Gif de l'application Movies"
+                }
+            ]
+        },
+        {
+            "title": "application Movies - Back",
+            "categorie": "develop",
+            "technologies": ["Symfony", "Mysql"],
+            "content": [
+                "La génération et le paramétrage de l'API sont entièrement gérés à partir d'un projet Symfony Api Platform, offrant ainsi une gestion centralisée et robuste des données.",
+                "La gestion des relations entre les entités de ma base de données MySQL est également assurée via Api Platform grâce aux filtres et aux assertions. Ces fonctionnalités permettent d'établir des liens et des associations logiques entre les différentes entités, facilitant ainsi la recherche, la navigation et le partage de données cohérentes à travers l'API."
+            ],
+            "images": [
+                {
+                    "src": "images/MovieVueApi/ApiPlatform.png",
+                    "alt": "Image API Platform"
+
+                }
+            ]
+        },
+        {
+            "title": "Pokedex React Native",
+            "categorie": "develop",
+            "technologies": ["ReactJs"],
+            "content": [
+                "J'ai également eu l'occasion de développer une application mobile avec React Native et Expo.",
+                "Cette application affiche une liste gérée grâce à un infinite scroll de tous les Pokémon, avec des pages d'informations dédiées à chacun.",
+                "Il est également possible de créer une équipe de 6 Pokémon, stockée via AsyncStorage, l'équivalent de localStorage sur React Native.",
+                "Les données de l'application proviennent de l'API PokéApi."
+            ],
+            "images": [
+                {
+                    "src": "images/reactNative/infiniteScroll.gif",
+                    "alt": "Gif du listing et la recherche de pokemons l'application Pokedex",
+                    "format": "vertical"
+                },
+                {
+                    "src": "images/reactNative/PokemonTeam.gif",
+                    "alt": "Gif de la fonctionnalitée de team de l'application Pokedex",
+                    "format": "vertical"
+                }
+            ]
+        },
+        {
+            "title": "Magento 2 / Shopify",
+            "categorie": "develop",
+            "technologies": ["Magento", "Shopify"],
+            "content": [
+                "Les principales technologies sur lesquelles je me suis formé durant mon alternance sont les suivantes : ",
+                "le CMS Magento 2 natifs (templates phtml, fichiers xml, knockout.js et require.js), sa surcouche Hyva qui intègre les frameworks Alpine.js et Tailwind CSS,",
+                "ainsi que Shopify avec son système de templates Liquid et son JavaScript pur."
+            ],
+            "images": [
+                {
+                    "src": "images/magento/Group 12.png",
+                    "alt": "présentation des technologies CMS Magento 2 et Shopify",
+                    "format": "contained"
+                }
+            ]
+        },
+        {
+            "title": "Backbone.js",
+            "categorie": "develop",
+            "technologies": ["Backbone"],
+            "content": [
+                "Les principales technologies sur lesquelles je me suis formé durant mon alternance"
+            ],
+            "images": [
+                {
+                    "src": "images/backbone/todo.gif",
+                    "alt": "Gif de la todo liste Backbone",
+                    "format": "horizontal"
+                },
+                {
+                    "src": "images/backbone/backbone.gif",
+                    "alt": "Gif de la mind map Backbone",
+                    "format": "horizontal"
+                }
+            ]
+        },
+        {
+            "title": "Chat Ajax PHP",
+            "categorie": "develop",
+            "technologies": ["PHP", "Ajax"],
+            "content": [
+                "Le TP chat est une application de chat interactif, sous ajax et php, avec sauvegarde des messages postés en base de données."
+            ],
+            "images": [
+                {
+                    "src": "images/AJAX/chat_ajax.png",
+                    "alt": "Image de l'application chat Ajax"
+                }
+            ]
+        }
+    ],
+    "graphisme": [
+        {
+            "title": "Maquettage Figma",
+            "categorie": "graphisme",
+            "technologies": ["Figma"],
+            "content": [
+                "Un autre projet que nous avons réalisé en classe était la refonte graphique d'un site d'escape game à Troyes.",
+                "Le projet s'est déroulé en plusieurs étapes. Tout d'abord, nous avons effectué des recherches sur l'univers que nous souhaitions attribuer à l'entreprise. Ensuite, sur la base de ces recherches, nous avons créé un nouveau logo, une nouvelle charte graphique, et enfin une maquette de site web interactive conçue sur Figma."
+            ],
+            "images": [
+                {
+                    "src": "images/graphisme/escapeTroyes.png",
+                    "alt": "Maquette de site web d'escape game"
+                }
+            ]
+        },
+        {
+            "title": "Affiche de recette",
+            "categorie": "graphisme",
+            "technologies": ["Photoshop"],
+            "content": [
+                "Ce projet consistait à créer une affiche représentant la recette d'un plat emblématique. J'ai personnellement choisi le logiciel Photoshop pour mettre en valeur la recette des carbonara, un plat que j'apprécie particulièrement. À travers cette création, j'ai cherché à illustrer de manière claire et esthétique les différentes étapes de la préparation de ce plat emblématique.",
+                "Mon objectif était de fournir une représentation visuelle attrayante et fonctionnelle de la recette, tout en exprimant ma passion pour la cuisine à travers le design graphique."
+            ],
+            "images": [
+                {
+                    "src": "images/graphisme/recette.jpg",
+                    "alt": "Affiche de recette des carbonara"
+                }
+            ]
+        },
+        {
+            "title": "Malongo Bauhaus",
+            "categorie": "graphisme",
+            "technologies": ["Illustrator"],
+            "content": [
+                "Un autre projet intéressant que j'ai pu réaliser était la refonte et le rebranding d'une boîte de café de la marque Malongo dans le style du Bauhaus.",
+                "L'exercice d'appropriation des styles esthétiques d'un univers graphique aussi mythique que le Bauhaus était à la fois stimulant, exigeant et très intéressant."
+            ],
+            "images": [
+                {
+                    "src": "images/graphisme/malongo_mockup.png",
+                    "alt": "Boîte de café Malongo Bauhaus"
+                }
+            ]
+        }
+    ]
+}
