@@ -1,8 +1,8 @@
 {
-  "name": "react-gapp",
+  "name": "folio-univ",
   "version": "1.0.0",
   "private": true,
-  "description": "react-gapp",
+  "description": "folio-univ",
   "author": "thibault livran",
   "keywords": [
     "gatsby"
@@ -15,14 +15,26 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^5.13.5",
+    "@mdx-js/react": "^2.3.0",
+    "animate.css": "^4.1.1",
+    "gatsby": "^5.13.3",
     "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-mdx": "^5.13.1",
     "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-plugin-sitemap": "^6.13.1",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "locomotive-scroll": "^4.1.4",
     "react": "^18.2.0",
+    "react-animate-on-scroll": "^2.1.9",
+    "react-animated-cursor": "^2.11.2",
     "react-dom": "^18.2.0",
-    "sass": "^1.77.8"
-  }
+    "react-fast-marquee": "^1.6.5",
+    "react-locomotive-scroll": "^0.2.2",
+    "react-slick": "^0.30.2",
+    "sass": "^1.77.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {}
 }

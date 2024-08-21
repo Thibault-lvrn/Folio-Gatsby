@@ -1,0 +1,52 @@
+
+@media screen and (min-width: 48rem) {
+    // .hidden {
+    //     opacity: 0;
+    //     transition: all 0.5s ease-in-out;
+    //     transform: translateX(-1.5625rem);
+    // }
+
+    .first-man,
+    .homepage-card {
+        .hidden {
+            transform: translateX(-1.5625rem);
+            transition-delay: 200ms;
+        }
+        
+        .hidden + .hidden {
+            transition-delay: 100ms;
+        }
+    }
+
+    .second-man {
+        .hidden {
+            transform: translateX(1.5625rem);
+            transition-delay: 200ms;
+        }
+        
+        .hidden + .hidden {
+            transition-delay: 100ms;
+        }
+    }
+
+    .homepage-card {
+        .hidden {
+            transform: translateX(-1.5625rem);
+            transition-delay: 100ms;
+        }
+        
+        .hidden + .hidden {
+            transition-delay: 200ms;
+        }
+    }
+
+    .hidden.hidden-inverted {
+        transform: translateX(1.5625rem);
+    }
+
+    .visible,
+    .visible.hidden-inverted {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+}

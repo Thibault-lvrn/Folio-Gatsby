@@ -1,0 +1,44 @@
+input[type="submit"] {
+    border-color: transparent;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 21.88rem;
+    border-radius: .63rem;
+}
+
+.btn,
+.btn span,
+.btn input[type="submit"] {
+    background-color: var(--white);
+    padding: .625rem .9375rem;
+    border-radius: .625rem;
+}
+
+.btn.secondary {
+    &::after {
+        background-color: #C27B7B;
+    }
+
+    span,
+    input[type="submit"] {
+        color: black;
+        background-color: #C27B7B;
+    }
+}
+
+#cursor {
+    visibility: hidden;
+    width: 3.75rem;
+    height: 3.75rem;
+    opacity: 1;
+    border: .125rem solid $violet;
+    background-color: transparent;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}

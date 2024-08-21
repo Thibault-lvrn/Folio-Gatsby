@@ -1,0 +1,88 @@
+@mixin absolute-el($top, $right, $bottom, $left, $x, $y) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    transform: translate($x, $y);
+}
+
+// pour appeller : @include absolute-el (50%, 0, 0, 50%, -50%, -50%)
+
+// pseudo element
+@mixin pseudo-el($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+@mixin check($color, $font-size){
+    font-display: block;
+    font-family: Material Icons;
+    content: 'check';
+    font-size: $font-size;
+    color: $color;
+}
+
+@mixin close($color, $font-size){
+    font-display: block;
+    font-family: Material Icons;
+    content: 'close';
+    font-size: $font-size;
+    color: $color;
+}
+
+@mixin toggle($font-size, $background, $color, $background-slider, $color-slider){
+    input{
+        display: none
+    }
+    label{
+        @extend %btn-base;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        width: 304px;
+        height: 50px;
+        background: $background;
+        transition: all 0.3s ease;
+    
+        .btn-bill-change-inner__on{
+            @extend %flex-center;
+            position: absolute;
+            font-size: 1rem;
+            right: 32px;
+            left: 152px;
+            top: 2px;
+            width: 150px;
+            height: 46px;
+            color: $color;
+        }
+        .btn-bill-change-inner__off{
+            @extend %flex-center;
+            left: 2px;
+            top: 2px;
+            width: 150px;
+            height: 46px;
+            border-radius: $radius-global;
+            background-color: $background-slider;
+            color: $color-slider;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+    }
+    input:checked ~ * .btn-bill-change-inner__on{
+        right: auto;
+        left: 2px;
+    }
+    input:checked ~ * .btn-bill-change-inner__off{
+        left: 152px;
+    }
+}
+
+@mixin btn-full($width, $height, $color, $background) {
+    @extend %btn-base;
+    width: $width;
+    height: $height;
+    color: $color;
+    background-color: $background;
+}

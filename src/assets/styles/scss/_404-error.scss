@@ -1,0 +1,52 @@
+.error-not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    color: var(--white);
+    gap: 4.5rem;
+    // background-image: url('../../images/noisyBG/bg-noisy.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    .error-code {
+        text-align: center;
+        width: 50%;
+        display: flex;
+        justify-content: end;
+
+        h1 {
+            font-family: "Chien";
+            font-size: 10rem;
+            line-height: 1;
+        }
+        
+        h2 {
+            font-family: "mona-regular";
+            font-size: 3.2rem;
+        }
+    }
+
+    .error-separation {
+        width: .125rem;
+        height: 20%;
+        background-color: var(--white);
+    }
+
+    .error-information {
+        width: 50%;
+        
+        p {
+            max-width: 30rem;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    
+
+    a {
+        text-decoration: underline;
+        color: $violet;
+    }
+}

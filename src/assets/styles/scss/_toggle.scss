@@ -1,0 +1,69 @@
+.toggle-box, .toggle-box label .btn-bill-change-inner__off, .toggle-box label .btn-bill-change-inner__on, .loader, .push-product__action, .toggle-box label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.push-product__action, .toggle-box label {
+    border-radius: 3.125rem;
+    border: none;
+    font-size: 1rem;
+}  
+
+.toggle-box {
+    // position: relative;
+    // z-index: 5;
+    width: 100%;
+    padding-top: 5.7rem;
+    padding-bottom: 3.7rem;
+}
+.toggle-box input {
+    display: none;
+}
+.toggle-box label {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    width: 276px;
+    height: 50px;
+    background: transparent;
+    transition: all 0.3s ease;
+    border: 2px solid $violet;
+    z-index: 4;
+}
+
+.toggle-box label .btn-bill-change-inner__off,
+.toggle-box label .btn-bill-change-inner__on {
+    position: absolute;
+    font-family: "mona-bold";
+    top: 2px;
+    height: 42px;
+    color: var(--white);
+    width: 138px;
+    text-transform: uppercase;
+}
+
+.toggle-box label .btn-bill-change-inner__on {
+    font-size: 1rem;
+    right: 32px;
+    left: 132px;
+    transition: all 0.3s ease;
+}
+
+.toggle-box label .btn-bill-change-inner__off {
+    letter-spacing: 0.3px;
+    left: 2px;
+    border-radius: 3.125rem;
+    background-color: $violet;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.toggle-box input:checked ~ * .btn-bill-change-inner__on {
+    right: auto;
+    left: 2px;
+}
+.toggle-box input:checked ~ * .btn-bill-change-inner__off {
+    left: 132px;
+}
