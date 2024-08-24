@@ -6,7 +6,7 @@
         align-items: center;
         max-width: 90rem;
         margin: 0 auto;
-        gap: 10rem;
+        gap: 5rem;
         padding: 0;
     
     }
@@ -15,6 +15,11 @@
         display: flex;
         gap: 3rem;
         align-items: flex-end;
+        flex-direction: column;
+
+        &.reverse {
+            flex-direction: column-reverse;
+        }
 
         &:first-child {
             margin-top: 6.25rem;
@@ -26,24 +31,47 @@
         
         &__image {
             object-fit: cover;
-            width: 40%;
+            width: 100%;
 
             img {
                 width: 100%;
                 height: auto;
+                filter: invert(1);
 
                 .light-mode & {
-                    filter: invert(1);
+                    filter: invert(0);
                 }
             }
         }
     
         &__txt {
-            width: 60%;
+            width: 100%;
             margin-bottom: 4rem;
 
-            p {
+            p,
+            span {
                 font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 48rem) {
+    .about {
+        &__container {
+            gap: 8rem;
+        }
+
+        &__content,
+        .reverse {
+            flex-direction: row;
+
+            &__image {
+                width: 40%;
+            }
+    
+            &__txt {
+                width: 60%;
             }
         }
     }
