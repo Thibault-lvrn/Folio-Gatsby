@@ -2,31 +2,38 @@ import React, { useEffect, useRef, useState } from "react";
 import projectData from '../data/projectData';
 import { useToggle } from '../context/ToggleContext';
 import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.compat.css"
+import ReactModal from "../components/modal";
 
 const CollapsibleSection = ({ title, categorie, technologies, children, isOpen, onClick, index }) => {
     const contentRef = useRef(null);
 
     return (
-        <div className={`collapsible-list ${title}`}>
-            <div className={`collapsible ${isOpen ? 'active' : ''}`} onClick={onClick}>
-                <div className="collapsible-title">
-                    <span className="compteur">{String(index).padStart(2, '0')}</span>
-                    <span className="title">{title}</span>
-                </div>
-                <div className="collapsible-btn-container">
-                    {technologies.map(techno => (
-                        <div className="comp-container" key={techno}>
-                            <img loading="lazy" height="30" width="30" src={`./assets/images/comp/${techno}.png`} alt={techno} />
-                            <span className="tooltip">{techno}</span>
+        <>
+            <div className={`collapsible-list ${title}`}>
+                <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+                    <div className={`collapsible ${isOpen ? 'active' : ''}`} onClick={onClick}>
+                        <div className="collapsible-title">
+                            <span className="compteur">{String(index).padStart(2, '0')}</span>
+                            <span className="title">{title}</span>
                         </div>
-                    ))}
-                    <button className="collapsible-btn">{categorie}</button>
-                </div>
-                <span className="background-title">{title}</span>
+                        <div className="collapsible-btn-container">
+                            {technologies.map(techno => (
+                                <div className="comp-container" key={techno}>
+                                    {/* <img loading="lazy" height="30" width="30" src={`./images/comp/${techno}.png`} alt={techno} /> */}
+                                    <div className="comp-img"><img loading="lazy" height="30" width="30" src={`./images/comp/svg/${techno}.svg`} alt={techno} /></div>
+                                    <span className="tooltip">{techno}</span>
+                                </div>
+                            ))}
+                            <button className="collapsible-btn">{categorie}</button>
+                        </div>
+                        <span className="background-title">{title}</span>
+                    </div>
+                    <div ref={contentRef} className={`collapsible-content ${isOpen ? 'open' : ''}`}>{children}</div>
+                </ScrollAnimation>
             </div>
-            <div ref={contentRef} className={`collapsible-content ${isOpen ? 'open' : ''}`}>{children}</div>
             <h2 className={`full-title ${isOpen ? 'active' : ''}`}>{title}</h2>
-        </div>
+        </>
     );
 };
 
@@ -63,6 +70,29 @@ const SimpleSlider = () => {
         toggleCategorie();
     }, [checked]);
 
+    useEffect(() => {
+        // Handler pour fermer tous les collapsibles lorsque la largeur de l'écran est inférieure à 1160px
+        const handleResize = () => {
+            if (window.innerWidth < 1160) {
+                setOpenSection(null);
+                setAllCollapsiblesClosed(true);
+            } else {
+                setAllCollapsiblesClosed(false);
+            }
+        };
+
+        // Ajouter l'événement resize
+        window.addEventListener('resize', handleResize);
+
+        // Appeler la fonction pour vérifier la taille initiale
+        handleResize();
+
+        // Nettoyer l'événement resize au démontage du composant
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     const sliderRef = useRef(null);
 
     const goToSlide = (index) => {
@@ -71,9 +101,19 @@ const SimpleSlider = () => {
         }
     };
 
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => {
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
+
     return (
         <div className="project-section">
-            <ScrollAnimation animateIn='fadeIn'>
+            <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
                 <h2 className="part-title hidden">Mes Projects<span className="violet-text">.</span></h2>
             </ScrollAnimation>
             <div id="graphisme"></div>
@@ -98,26 +138,40 @@ const SimpleSlider = () => {
                         </div>
                     ))}
                 </div>
-                <div className="collapsible-container hidden">
+                {/* <div onClick={openModal} className="collapsible-container hidden"> */}
+                <divs className="collapsible-container hidden">
                     {projectData[categorie].map((project, index) => (
-                        <CollapsibleSection
-                            key={index}
-                            title={project.title}
-                            categorie={project.categorie}
-                            isOpen={openSection === index}
-                            technologies={project.technologies}
-                            onClick={() => handleClick(index)}
-                            index={index + 1}
-                        >
-                            <div className="collapsible-elements">
-                                <button onClick={() => handleClick(index)}>X</button>
-                                {project.content.map((paragraph, pIndex) => (
-                                    <p key={pIndex}>{paragraph}</p>
-                                ))}
+                        <>
+                            <div onClick={openModal} className="collapsible-button">
+                                <CollapsibleSection
+                                    key={index}
+                                    title={project.title}
+                                    categorie={project.categorie}
+                                    isOpen={openSection === index}
+                                    technologies={project.technologies}
+                                    onClick={() => handleClick(index)}
+                                    index={index + 1}
+                                >
+                                    <div className="collapsible-elements">
+                                        {project.content.map((paragraph, pIndex) => (
+                                            <p key={pIndex}>{paragraph}</p>
+                                        ))}
+                                    </div>
+                                </CollapsibleSection>
+                                
+                                {/* <button className="modalOpener" onClick={openModal}>Open Modal from Outside</button> */}
                             </div>
-                        </CollapsibleSection>
+                            <ReactModal 
+                                title={project.title}
+                                categorie={project.categorie}
+                                technologies={project.technologies}
+                                images={project.images}
+                                isOpen={modalIsOpen}
+                                onRequestClose={closeModal}
+                            />
+                        </>
                     ))}
-                </div>
+                </divs>
             </div>
         </div>
     );
