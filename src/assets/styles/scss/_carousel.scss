@@ -152,10 +152,16 @@
         justify-content: center;
         align-items: center;
 
+        .modalContent & {
+            height: 40px;
+            width: 40px;
+        }
+
         .collapsible:hover & {
             border-color: white;
         }
     }
+
 
     img {
         width: auto;

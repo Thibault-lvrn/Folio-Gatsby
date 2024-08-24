@@ -4,6 +4,7 @@ import { useToggle } from '../context/ToggleContext';
 import ScrollAnimation from 'react-animate-on-scroll';
 import "animate.css/animate.compat.css"
 import ReactModal from "../components/modal";
+import HighlightText from '../components/HighlightText';
 
 const CollapsibleSection = ({ title, categorie, technologies, children, isOpen, onClick, index }) => {
     const contentRef = useRef(null);
@@ -20,7 +21,6 @@ const CollapsibleSection = ({ title, categorie, technologies, children, isOpen, 
                         <div className="collapsible-btn-container">
                             {technologies.map(techno => (
                                 <div className="comp-container" key={techno}>
-                                    {/* <img loading="lazy" height="30" width="30" src={`./images/comp/${techno}.png`} alt={techno} /> */}
                                     <div className="comp-img"><img loading="lazy" height="30" width="30" src={`./images/comp/svg/${techno}.svg`} alt={techno} /></div>
                                     <span className="tooltip">{techno}</span>
                                 </div>
@@ -71,7 +71,6 @@ const SimpleSlider = () => {
     }, [checked]);
 
     useEffect(() => {
-        // Handler pour fermer tous les collapsibles lorsque la largeur de l'écran est inférieure à 1160px
         const handleResize = () => {
             if (window.innerWidth < 1160) {
                 setOpenSection(null);
@@ -81,13 +80,9 @@ const SimpleSlider = () => {
             }
         };
 
-        // Ajouter l'événement resize
         window.addEventListener('resize', handleResize);
-
-        // Appeler la fonction pour vérifier la taille initiale
         handleResize();
 
-        // Nettoyer l'événement resize au démontage du composant
         return () => {
             window.removeEventListener('resize', handleResize);
         };
@@ -97,18 +92,22 @@ const SimpleSlider = () => {
 
     const goToSlide = (index) => {
         if (sliderRef.current) {
-            // Logic to navigate to a specific slide can be added here if needed
         }
     };
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    // Array to manage the open state of each modal
+    const [modalIsOpen, setModalIsOpen] = useState(Array(projectData[categorie].length).fill(false));
 
-    const openModal = () => {
-        setModalIsOpen(true);
+    const openModal = (index) => {
+        const newModalState = [...modalIsOpen];
+        newModalState[index] = true;
+        setModalIsOpen(newModalState);
     };
 
-    const closeModal = () => {
-        setModalIsOpen(false);
+    const closeModal = (index) => {
+        const newModalState = [...modalIsOpen];
+        newModalState[index] = false;
+        setModalIsOpen(newModalState);
     };
 
     return (
@@ -138,13 +137,11 @@ const SimpleSlider = () => {
                         </div>
                     ))}
                 </div>
-                {/* <div onClick={openModal} className="collapsible-container hidden"> */}
-                <divs className="collapsible-container hidden">
+                <div className="collapsible-container hidden">
                     {projectData[categorie].map((project, index) => (
-                        <>
-                            <div onClick={openModal} className="collapsible-button">
+                        <React.Fragment>
+                            <div key={index} onClick={() => openModal(index)} className="collapsible-button">
                                 <CollapsibleSection
-                                    key={index}
                                     title={project.title}
                                     categorie={project.categorie}
                                     isOpen={openSection === index}
@@ -153,25 +150,26 @@ const SimpleSlider = () => {
                                     index={index + 1}
                                 >
                                     <div className="collapsible-elements">
-                                        {project.content.map((paragraph, pIndex) => (
+                                        {/* {project.content.map((paragraph, pIndex) => (
                                             <p key={pIndex}>{paragraph}</p>
-                                        ))}
+                                        ))} */}
+                                        <HighlightText content={project.content} />
                                     </div>
                                 </CollapsibleSection>
-                                
-                                {/* <button className="modalOpener" onClick={openModal}>Open Modal from Outside</button> */}
                             </div>
+                            {/* {console.log('content', JSON.stringify(project.content))} */}
                             <ReactModal 
                                 title={project.title}
                                 categorie={project.categorie}
                                 technologies={project.technologies}
+                                content={project.content}
                                 images={project.images}
-                                isOpen={modalIsOpen}
-                                onRequestClose={closeModal}
+                                isOpen={modalIsOpen[index]}
+                                onRequestClose={() => closeModal(index)}
                             />
-                        </>
+                        </React.Fragment>
                     ))}
-                </divs>
+                </div>
             </div>
         </div>
     );

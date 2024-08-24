@@ -18,23 +18,58 @@
     color: var(--white) !important;
     border: 0 !important;
     border-radius: 0 !important;
+    padding-top: 4.125rem !important;
 }
 
 .modalContent {
     position: relative;
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .modal_information {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .modal_img {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: .625rem;
+        }
+    }
+
+    .modal_title {
+        display: flex;
+        justify-content: space-between;
+        gap: .625rem;
+
+        p {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .technologies_images {
+            display: flex;
+            gap: 1rem;
+            margin-left: 1rem;
+
+            img {
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+        }
+    }
+
+    .modal_text {
+        margin-bottom: 9.25rem;
     }
 }
 
 .closeButton {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1rem;
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
     cursor: pointer;
     border: none;
     color: var(--white);
@@ -42,6 +77,9 @@
     z-index: 1;
     transition: color 0.3s;
     background-color: transparent;
+    font-size: 3.125rem;
+    line-height: 0.6;
+    padding: 0;
 }
 
 @media (min-width: 72.44rem) {
