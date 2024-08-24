@@ -32,9 +32,9 @@
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.5",
     "react-locomotive-scroll": "^0.2.2",
+    "react-modal": "^3.16.1",
     "react-slick": "^0.30.2",
     "sass": "^1.77.0",
     "slick-carousel": "^1.8.1"
-  },
-  "devDependencies": {}
+  }
 }
