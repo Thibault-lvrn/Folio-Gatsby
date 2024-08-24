@@ -137,19 +137,49 @@
 
 .comp-container {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-    .tooltip {
-        display: none;
-        position: absolute;
-        bottom: -0.75rem;
-        left: 50%;
-        font-size: .81rem;
-        transform: translateX(-50%);
+    .comp-img {
+        height: 31.16px;
+        width: 31.16px;
+        background-color: transparent;
+        border: 2px solid $violet;
+        border-radius: 50%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .collapsible:hover & {
+            border-color: white;
+        }
     }
 
-    img:hover {
-        + .tooltip {
-            display: block;
+    img {
+        width: auto;
+        max-height: 100%;
+        height: auto;
+        max-width: 100%;
+
+        .dark-mode & {
+            filter: invert(1);
+        }
+    }
+
+    .tooltip {
+        max-width: 0px;
+        overflow: hidden;
+        transition: max-width 0.5s ease;
+    }
+
+    &:hover {
+        border-color: white;
+        
+        .tooltip {
+            transition: max-width 0.8s ease-in-out;
+            max-width: 500px;
         }
     }
 }

@@ -62,43 +62,19 @@
         transition: all 0.6s ease;
     }
     
-    &-list {
+    &-button {
         border-top: .06rem solid $violet;
         border-bottom: .06rem solid $violet;
     }
     
-    &-list:first-of-type {
+    &-button:first-of-type {
         border-top: .13rem solid $violet;
     }
-    
-    &-list:last-of-type {
+
+    &-button:last-of-type {
         border-bottom: .13rem solid $violet;
     }
     
-    &-container:has(.active) {
-        .collapsible {
-            height: 4rem;
-
-            &:hover {
-                .background-title {
-                    opacity: 0;
-                }
-
-                &::after {
-                    height: 0;
-                }
-            }
-
-            .title {
-                font-size: 1.5rem;
-            }
-
-            .compteur {
-                align-self: center;
-            }
-        }
-    }
-
     &-btn {
         font-family: 'Mentra';
         font-size: 0.875rem;
@@ -111,6 +87,9 @@
         transition: all 0.3s ease;
 
         &-container {
+            position: absolute;
+            bottom: 6px;
+            right: 0;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -123,7 +102,7 @@
         z-index: 3;
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
         
         .compteur {
             // align-self: flex-start;
@@ -137,18 +116,6 @@
             font-size: 5.5vw;
             transition: font-size 0.6s ease;
             // font-family: "mentra";
-        }
-    }
-
-    &.active {
-        height: 4rem;
-
-        .collapsible-btn {
-            background-color: $violet;
-        }
-    
-        .collapsible-title {
-            color: $violet;
         }
     }
 
@@ -166,11 +133,6 @@
             p {
                 font-size: 1.25rem;
             }
-        }
-    
-        &.open {
-            transition: max-height 0.6s ease;
-            max-height: 31.25rem;
         }
     }
 
@@ -208,41 +170,57 @@
     // }
 }
 
+@media (min-width: 48rem) {
+    .collapsible {
+        &-title {
+            gap: 2rem;
+
+            .title {
+                font-size: 3.8vw;
+            }
+        }
+
+        &-btn {
+            &-container {
+                position: initial;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                z-index: 3;
+            }
+        }
+    }
+
+
+}
 
 @media (max-width: 72.44rem) {
-    .collapsible-open {
+    .ReactModal__Body--open {
         overflow: hidden;
+    }
+
+    // .img-container.active {
+    //     display: none;
+    // }
+
+    // .carousel-container {
+    //     position: initial;
+    // }
+
+    .collapsible-content.open {
+        display: none;
+        
+        .collapsible-elements {
+            display: none;
+        }
     }
 
     .img-container.active {
         display: none;
     }
-
-    .carousel-container {
-        position: initial;
-    }
-
-    .collapsible-content.open {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgb(0, 69, 0);
-        z-index: 10;
-        max-height: none;
-    }
 }
 
-@media (min-width: 48rem) {
-    .collapsible-title {
-        .title {
-            font-size: 3.8vw;
-        }
-    }
-}
-
-@media (min-width: 72.5rem) {      
+@media (min-width: 72.44rem) {      
     .collapsible {
         &-container {
             width: 50%;
@@ -256,6 +234,81 @@
         &-container:has(.active) {
             width: 60%;
         }
+
+        &-title {
+            gap: 2rem;
+
+            .title {
+                font-size: 3.8vw;
+            }
+        }
+
+        &-btn {
+            &-container {
+                position: initial;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                z-index: 3;
+            }
+        }
+        
+        &-container:has(.active) {
+            .collapsible {
+                height: 4rem;
+    
+                &:hover {
+                    .background-title {
+                        opacity: 0;
+                    }
+    
+                    &::after {
+                        height: 0;
+                    }
+                }
+    
+                .title {
+                    font-size: 1.5rem;
+                }
+    
+                .compteur {
+                    align-self: center;
+                }
+            }
+        }
+
+        &.active {
+            height: 4rem;
+    
+            .collapsible-btn {
+                background-color: $violet;
+                color: white;
+                border-color: white;
+            }
+    
+            &:hover {
+                .collapsible-btn {
+                    background-color: $violet;
+                    color: white;
+                    border-color: white;
+                }
+            }
+        
+            .collapsible-title {
+                color: $violet;
+            }
+        }
+
+        &-content {
+            &.open {
+                transition: max-height 0.6s ease;
+                max-height: 31.25rem;
+            }
+        }
+    }
+   
+    .close-modal-btn {
+        display: none;
     }
     
     .full-title {

@@ -4,7 +4,6 @@
     align-items: center;
 }
 
-
 .push-product__action, .toggle-box label {
     border-radius: 3.125rem;
     border: none;
@@ -12,15 +11,15 @@
 }  
 
 .toggle-box {
-    // position: relative;
-    // z-index: 5;
     width: 100%;
     padding-top: 5.7rem;
     padding-bottom: 3.7rem;
 }
+
 .toggle-box input {
     display: none;
 }
+
 .toggle-box label {
     position: relative;
     overflow: hidden;
@@ -30,7 +29,7 @@
     background: transparent;
     transition: all 0.3s ease;
     border: 2px solid $violet;
-    z-index: 4;
+    z-index: 1;
 }
 
 .toggle-box label .btn-bill-change-inner__off,

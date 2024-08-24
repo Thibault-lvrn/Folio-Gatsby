@@ -43,10 +43,4 @@
     .hidden.hidden-inverted {
         transform: translateX(1.5625rem);
     }
-
-    .visible,
-    .visible.hidden-inverted {
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-    }
 }
