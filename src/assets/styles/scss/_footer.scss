@@ -12,11 +12,41 @@ footer {
         padding-bottom: 0;
         position: relative;
         z-index: 1;
+        // flex-direction: column-reverse;
+        gap: 1.25rem;
+        position: relative;
+        margin-top: 70px;
+    }
+
+    .footer__content__right {
+        align-self: flex-start;
     }
 
     .footer__content__left {
         display: flex;
+        align-items: center;
         gap: 0.5rem;
+
+        &__btns {
+            display: flex;
+            gap: 1.5rem;
+            position: absolute;
+            top: -68px;
+            left: 0;
+            right: 0;
+            padding: 0 1.5rem;
+
+            button {
+                width: 50%;
+                margin: 0 !important;
+            }
+        }
+
+        .btn-contact {
+            margin-right: 20px;
+            color: var(--black);
+            border: 0;
+        }
     }
 
     img {
@@ -28,5 +58,23 @@ footer {
 
     .light-mode & img {
         filter: invert(0);
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    footer {
+        .footer__content {
+            margin-top: 0;
+
+            &__left {
+                &__btns {
+                    position: initial;
+    
+                    button {
+                        width: auto;
+                    }
+                }
+            }
+        }
     }
 }
